@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d1a">
+  <meta name="description" content="Официальные пробники IELTS Academic и тренажёр английской лексики из твоих PDF и DOCX.">
+  <title>IELTS Practice</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="top"><div class="shell top-inner">
+    <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">✳︎</span> IELTS <b>Practice</b></a>
+    <nav aria-label="Разделы"><a href="#exam">Пробники</a><a href="#vocab">Словарь</a></nav>
+  </div></header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> IELTS ACADEMIC</p>
+        <h1 id="title">Подготовка<br>к IELTS</h1>
+        <p class="intro">Решай официальные пробники и тренируй английские слова из своих файлов.</p>
+        <div class="hero-actions"><a class="button primary" href="#exam">К пробникам</a><a class="button quiet" href="#vocab">Тренировать слова</a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+        <div class="orbit orbit-diagonal"></div><div class="orbit orbit-cross"></div>
+        <span class="art-star"><i></i><i></i><i></i><i></i></span><i class="satellite sat-one"></i><i class="satellite sat-two"></i><i class="satellite sat-three"></i>
+      </div>
+    </section>
+    <section id="exam" class="section" aria-labelledby="exam-title">
+      <div class="section-head">
+        <div><p class="kicker">ЭКЗАМЕН</p><h2 id="exam-title">Официальные пробники</h2></div>
+        <a class="text-link" href="https://ielts.org/take-a-test/preparation-resources/sample-test-questions/academic-test" target="_blank" rel="noopener">Все демоверсии на IELTS.org</a>
+      </div>
+      <div class="exam-grid" id="exam-grid"></div>
+      <div class="exam-links" aria-label="Критерии IELTS">
+        <a class="text-link" href="https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail" target="_blank" rel="noopener">Как считается балл</a>
+        <a class="text-link" href="https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf" target="_blank" rel="noopener">Критерии Writing</a>
+        <a class="text-link" href="https://ielts.org/cdn/ielts-guides/ielts-speaking-band-descriptors.pdf" target="_blank" rel="noopener">Критерии Speaking</a>
+      </div>
+    </section>
+    <section id="vocab" class="section vocabulary" aria-labelledby="vocab-title">
+      <div class="section-head">
+        <div><p class="kicker">ЛЕКСИКА</p><h2 id="vocab-title">Тренажёр слов</h2></div>
+      </div>
+      <div class="trainer">
+        <div class="import-panel">
+          <h3>Твой словарь</h3>
+          <p class="muted">Загрузи PDF или DOCX со словами. Если в файле есть переводы и примеры, они пригодятся в заданиях.</p>
+          <button type="button" id="pick-file" class="drop">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong>Выбрать файл</strong><small>PDF или DOCX · до 15 МБ</small>
+          </button>
+          <input type="file" id="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+          <p id="file-status" class="file-status muted" role="status" hidden></p>
+          <button type="button" id="demo" class="button secondary">Попробовать демо</button>
+          <details id="editor">
+            <summary>Вставить или отредактировать слова</summary>
+            <label for="raw">Одно слово или выражение на строку</label>
+            <textarea id="raw" rows="7" spellcheck="false" placeholder="brush up on | освежить знания | I need to brush up on my grammar."></textarea>
+            <p class="muted editor-help"><code>слово | перевод | пример</code><br>Для глагола можно добавить <code>| verb</code> и указать формы <code>| V2 | V3</code>. В примере можно обозначить пропуск через <code>___</code> для базовой формы.</p>
+            <button type="button" id="use-words" class="button secondary">Использовать эти слова</button>
+          </details>
+          <p class="local muted">Файлы обрабатываются на твоём устройстве.</p>
+        </div>
+        <div class="practice-panel">
+          <div class="mode-group" role="group" aria-label="Тип упражнения">
+            <button type="button" data-mode="choice" aria-pressed="true">Выбрать слово</button>
+            <button type="button" data-mode="tense" aria-pressed="false">Вписать форму</button>
+          </div>
+          <div id="stage"></div>
+          <p id="save-status" role="status" class="muted" hidden></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer"><span>IELTS Practice</span><small>Независимый тренажёр · экзаменационные задания открываются у IELTS и British Council.</small></footer>
+  <div id="celebration" aria-hidden="true"></div>
+</body>
+</html>
